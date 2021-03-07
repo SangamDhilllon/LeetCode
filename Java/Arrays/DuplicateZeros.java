@@ -11,28 +11,24 @@ public class DuplicateZeros {
 	public static void duplicateZeros(int[] arr) {
 
 		int zeroes = 0;
-		// count zeroes in original array
 		for (int i : arr) {
 			if (i == 0) {
-				zeroes++;
+				zeroes++; // count zeroes in original array
 			}
 		}
-
 		// j= last index of increased length
 		int i = arr.length - 1, j = arr.length + zeroes - 1;
 
 		while (i != j) {
 			insert(arr, i, j--);
 			if (arr[i] == 0) {
-				// insert and decrement j one more time
-				insert(arr, i, j--);
+				insert(arr, i, j--);   // insert and decrement j one more time
 			}
 			i--;
-			System.out.println("i= " + i + ", j= " + j);
 		}
 
-		// print final array
-		for (int k : arr) {
+		
+		for (int k : arr) { // print final array
 			System.out.println(k);
 		}
 
